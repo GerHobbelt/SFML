@@ -50,8 +50,10 @@ int main()
     while (window.isOpen())
     {
         // Process events
-        while (const auto event = window.pollEvent())
+        while (const auto eventp = window.pollEvent())
         {
+            const auto event = eventp.value();
+
             // Close window: exit
             if (event.is<sf::Event::Closed>())
             {
