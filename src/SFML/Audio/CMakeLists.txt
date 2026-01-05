@@ -177,6 +177,13 @@ else()
             target_compile_definitions(FLAC PRIVATE _FILE_OFFSET_BITS=32)
         endif()
 
+        # Disable all warnings
+        target_compile_options(ogg PRIVATE -w)
+        target_compile_options(FLAC PRIVATE -w)
+        target_compile_options(vorbis PRIVATE -w)
+        target_compile_options(vorbisenc PRIVATE -w)
+        target_compile_options(vorbisfile PRIVATE -w)
+
         # aliases were introduced only after 1.3.7 was released
         add_library(Vorbis::vorbis ALIAS vorbis)
         add_library(Vorbis::vorbisenc ALIAS vorbisenc)

@@ -227,6 +227,9 @@ else()
             target_compile_options(harfbuzz PRIVATE -Wa,-mbig-obj)
         endif()
 
+        # Disable all warnings
+        target_compile_options(freetype PRIVATE -w)
+
         add_library(Freetype::Freetype ALIAS freetype)
         add_library(HarfBuzz::HarfBuzz ALIAS harfbuzz)
     endfunction()
